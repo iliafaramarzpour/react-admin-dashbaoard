@@ -7,9 +7,9 @@ import { Outlet } from "react-router-dom";
 function DashboardLayout() {
   return (
     <>
-      <main className="min-h-full grid grid-cols-12">
+      <main className="min-h-full flex">
         <Aside />
-        <section className="col-span-10 bg-gray-50">
+        <section className="flex-1 bg-gray-50">
           <Header />
           <section className="px-36 py-6">
             <Outlet />
