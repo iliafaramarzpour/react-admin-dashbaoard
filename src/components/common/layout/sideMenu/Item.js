@@ -5,10 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function MenuItem({ item, openSidebar }) {
   const [dropDown, setDropDown] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   const navigate = useNavigate();
 
   return (
-    <li onClick={() => linkTo(item, navigate)} className=" py-1 px-0">
+    <li
+      onClick={() => linkTo(item, navigate)}
+      className={`py-1 px-0 ${isActive && openSidebar && "bg-slate-900"}`}
+    >
       <div
         className="flex items-center justify-between cursor-pointer text-white opacity-50 hover:opacity-100 duration-300 text-sm pb-3 ease-in transition "
         onClick={() => setDropDown(!dropDown)}
@@ -28,13 +32,15 @@ function MenuItem({ item, openSidebar }) {
         )}
       </div>
       {item.subMenu && openSidebar && (
-        <ul className={`pl-8 ease-in duration-300 ${!dropDown && "hidden"}`}>
+        <ul className={`pl-8 ease-in duration-300  ${!dropDown && "hidden"}`}>
           {item.subMenu.map((item, index) => {
             return (
               <li
                 onClick={() => linkTo(item, navigate)}
                 key={index}
-                className="text-white opacity-50 hover:opacity-100 duration-300 cursor-pointer text-sm pb-2"
+                className={`text-white opacity-50 hover:opacity-100 duration-300 cursor-pointer text-sm pb-2 ${
+                  isActive && "text-indigo-500 opacity-100"
+                }`}
               >
                 {item.title}
               </li>

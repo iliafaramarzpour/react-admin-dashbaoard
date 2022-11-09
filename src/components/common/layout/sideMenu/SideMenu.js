@@ -54,10 +54,6 @@ function SideMenu({ openSidebar }) {
     },
   ];
 
-  //   TODO : Add Style for Divider
-  //   TODO : Add Style for menu items
-  //   TODO : Add Style for Active menu item
-
   return (
     <>
       <div>
